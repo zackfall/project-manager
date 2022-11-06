@@ -17,6 +17,21 @@ we are making in the commit.
 * [x] Set the database.
 * [ ] Set migrations.
 * [ ] Set Entities from the database.
-* [ ] Set the proper Back-end of the app with functions for each action in the database.
+* [ ] Set functions to create a CRUD to interact with the database.
 * [ ] Create the interface.
 * [ ] Connect the interface with the database.
+
+## Features
+* [ ] Connect the Database with Github issues through Github API.
+* [ ] Create Task.
+* [ ] List Task.
+* [ ] List Tasks.
+* [ ] Update Task.
+* [ ] Delete Task.
+* [ ] Delete Tasks.
+* [ ] Create Sub-Task.
+* [ ] List Sub-Task.
+* [ ] List Sub-Tasks.
+* [ ] Update Sub-Task.
+* [ ] Delete Sub-Task.
+* [ ] Delete Sub-Tasks.
