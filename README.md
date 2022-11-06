@@ -14,7 +14,7 @@ we are making in the commit.
 
 ## Work to do
 
-* [ ] Set the database.
+* [x] Set the database.
 * [ ] Set migrations.
 * [ ] Set Entities from the database.
 * [ ] Set the proper Back-end of the app with functions for each action in the database.
