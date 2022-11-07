@@ -15,7 +15,7 @@ we are making in the commit.
 ## Work to do
 
 * [x] Set the database.
-* [ ] Set migrations.
+* [x] Set migrations.
 * [ ] Set Entities from the database.
 * [ ] Set functions to create a CRUD to interact with the database.
 * [ ] Create the interface.
