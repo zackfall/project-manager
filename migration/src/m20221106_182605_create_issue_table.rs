@@ -1,3 +1,5 @@
+use std::fmt;
+
 use sea_orm_migration::prelude::*;
 
 use super::m20221106_182043_create_owner_table::Owner;
@@ -47,7 +49,7 @@ impl MigrationTrait for Migration {
                         ForeignKey::create()
                             .name("fk-issue-comment_id")
                             .from(Issue::Table, Issue::CommentId)
-                            .to(Comment::Table, Comment::Id),
+                            .to(Issue::Table, Comment::Id),
                     )
                     .to_owned(),
             )
@@ -70,10 +72,35 @@ pub enum Issue {
     Body,
     Url,
     State,
+    #[iden = "created_at"]
     CreatedAt,
+    #[iden = "updated_at"]
     UpdatedAt,
+    #[iden = "closed_at"]
     ClosedAt,
+    #[iden = "closed_by_id"]
     ClosedById,
+    #[iden = "owner_id"]
     OwnerId,
+    #[iden = "comment_id"]
     CommentId,
+}
+
+impl fmt::Display for Issue {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            Issue::Table => write!(f, "issue"),
+            Issue::Id => write!(f, "id"),
+            Issue::Title => write!(f, "title"),
+            Issue::Body => write!(f, "body"),
+            Issue::Url => write!(f, "url"),
+            Issue::State => write!(f, "state"),
+            Issue::CreatedAt => write!(f, "created_at"),
+            Issue::UpdatedAt => write!(f, "updated_at"),
+            Issue::ClosedAt => write!(f, "closed_at"),
+            Issue::ClosedById => write!(f, "closed_by_id"),
+            Issue::OwnerId => write!(f, "owner_id"),
+            Issue::CommentId => write!(f, "comment_id"),
+        }
+    }
 }

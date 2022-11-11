@@ -1,3 +1,5 @@
+use std::fmt;
+
 use sea_orm_migration::prelude::*;
 
 #[derive(DeriveMigrationName)]
@@ -38,4 +40,15 @@ pub enum Owner {
     Id,
     Username,
     Url,
+}
+
+impl fmt::Display for Owner {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            Owner::Table => write!(f, "owner"),
+            Owner::Id => write!(f, "id"),
+            Owner::Username => write!(f, "username"),
+            Owner::Url => write!(f, "url"),
+        }
+    }
 }

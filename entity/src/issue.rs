@@ -22,21 +22,13 @@ pub struct Model {
 #[derive(Copy, Clone, Debug, EnumIter, DeriveRelation)]
 pub enum Relation {
     #[sea_orm(
-        belongs_to = "super::owner::Entity",
-        from = "Column::ClosedById",
-        to = "super::owner::Column::Id",
-        on_update = "NoAction",
-        on_delete = "NoAction"
-    )]
-    Owner2,
-    #[sea_orm(
-        belongs_to = "super::comment::Entity",
+        belongs_to = "Entity",
         from = "Column::CommentId",
-        to = "super::comment::Column::Id",
+        to = "Column::Id",
         on_update = "NoAction",
         on_delete = "NoAction"
     )]
-    Comment,
+    SelfRef,
     #[sea_orm(
         belongs_to = "super::owner::Entity",
         from = "Column::OwnerId",
@@ -44,13 +36,15 @@ pub enum Relation {
         on_update = "NoAction",
         on_delete = "NoAction"
     )]
+    Owner2,
+    #[sea_orm(
+        belongs_to = "super::owner::Entity",
+        from = "Column::ClosedById",
+        to = "super::owner::Column::Id",
+        on_update = "NoAction",
+        on_delete = "NoAction"
+    )]
     Owner1,
-}
-
-impl Related<super::comment::Entity> for Entity {
-    fn to() -> RelationDef {
-        Relation::Comment.def()
-    }
 }
 
 impl ActiveModelBehavior for ActiveModel {}

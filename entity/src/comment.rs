@@ -25,19 +25,11 @@ pub enum Relation {
         on_delete = "NoAction"
     )]
     Owner,
-    #[sea_orm(has_many = "super::issue::Entity")]
-    Issue,
 }
 
 impl Related<super::owner::Entity> for Entity {
     fn to() -> RelationDef {
         Relation::Owner.def()
-    }
-}
-
-impl Related<super::issue::Entity> for Entity {
-    fn to() -> RelationDef {
-        Relation::Issue.def()
     }
 }
 

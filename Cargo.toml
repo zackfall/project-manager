@@ -7,11 +7,15 @@ edition = "2021"
 members = [
   ".",
   "migration",
+  "entity",
+
+  "tests"
 ]
 
 [dependencies]
 migration = { path = "migration" }
+entity = { path = "entity" }
 tui = "0.19.0"
 futures = "0.3"
-sea-orm = { version = "^0", features = [ "sqlx-sqlite", "runtime-tokio-rustls", "macros" ] }
+sea-orm = { version = "0.10.2", features = [ "sqlx-sqlite", "runtime-tokio-rustls", "macros" ] }
 tokio = { version = "1", features = ["full"] }

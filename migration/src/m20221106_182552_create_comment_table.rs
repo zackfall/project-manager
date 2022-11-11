@@ -1,3 +1,5 @@
+use std::fmt;
+
 use sea_orm_migration::prelude::*;
 
 use super::m20221106_182043_create_owner_table::Owner;
@@ -50,8 +52,27 @@ pub enum Comment {
     Id,
     Url,
     Body,
+    #[iden = "issue_url"]
     IssueUrl,
+    #[iden = "created_at"]
     CreatedAt,
+    #[iden = "updated_at"]
     UpdatedAt,
+    #[iden = "owner_id"]
     OwnerId,
+}
+
+impl fmt::Display for Comment {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            Comment::Table => write!(f, "comment"),
+            Comment::Id => write!(f, "id"),
+            Comment::Url => write!(f, "url"),
+            Comment::Body => write!(f, "body"),
+            Comment::IssueUrl => write!(f, "issue_url"),
+            Comment::CreatedAt => write!(f, "created_at"),
+            Comment::UpdatedAt => write!(f, "updated_at"),
+            Comment::OwnerId => write!(f, "owner_id"),
+        }
+    }
 }
