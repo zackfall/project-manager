@@ -23,15 +23,11 @@ we are making in the commit.
 
 ## Features
 * [ ] Connect the Database with Github issues through Github API.
-* [ ] Create Task.
-* [ ] List Task.
-* [ ] List Tasks.
-* [ ] Update Task.
-* [ ] Delete Task.
-* [ ] Delete Tasks.
-* [ ] Create Sub-Task.
-* [ ] List Sub-Task.
-* [ ] List Sub-Tasks.
-* [ ] Update Sub-Task.
-* [ ] Delete Sub-Task.
-* [ ] Delete Sub-Tasks.
+* [ ] Create Issue.
+* [ ] List Issue.
+* [ ] List Issue.
+* [ ] Update Issue.
+* [ ] Delete Issue.
+* [ ] Delete Issue.
+
+Add comments,owners, and projects API in the future.
