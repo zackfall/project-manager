@@ -3,3 +3,4 @@
 pub use super::comment::Entity as Comment;
 pub use super::issue::Entity as Issue;
 pub use super::owner::Entity as Owner;
+pub use super::repository::Entity as Repository;

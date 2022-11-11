@@ -17,7 +17,7 @@ we are making in the commit.
 * [x] Set the database.
 * [x] Set migrations.
 * [x] Set Entities from the database.
-* [ ] Set the Repository Schema.
+* [x] Set the Repository Schema.
   * id: int
   * name: str
   * full_name: str
@@ -49,6 +49,5 @@ we are making in the commit.
   * [ ] Manage comments.
   * [ ] Manage Labels.
   * [ ] Manage Assignees.
-* Work with pull requests.
-
-Add comments,owners, and projects API in the future.
+* [ ] Work with pull requests.
+* [ ] Integrated editor to edit issues, repositories, etc.

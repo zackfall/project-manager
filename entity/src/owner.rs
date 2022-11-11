@@ -3,7 +3,7 @@
 use sea_orm::entity::prelude::*;
 use serde::{Deserialize, Serialize};
 
-#[derive(Clone, Debug, PartialEq, DeriveEntityModel, Eq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, DeriveEntityModel, Eq, Deserialize, Serialize)]
 #[sea_orm(table_name = "owner")]
 pub struct Model {
     #[sea_orm(primary_key)]
@@ -17,11 +17,19 @@ pub struct Model {
 pub enum Relation {
     #[sea_orm(has_many = "super::comment::Entity")]
     Comment,
+    #[sea_orm(has_many = "super::repository::Entity")]
+    Repository,
 }
 
 impl Related<super::comment::Entity> for Entity {
     fn to() -> RelationDef {
         Relation::Comment.def()
+    }
+}
+
+impl Related<super::repository::Entity> for Entity {
+    fn to() -> RelationDef {
+        Relation::Repository.def()
     }
 }
 

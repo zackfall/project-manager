@@ -4,33 +4,33 @@ use sea_orm::entity::prelude::*;
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Debug, PartialEq, DeriveEntityModel, Eq, Deserialize, Serialize)]
-#[sea_orm(table_name = "issue")]
+#[sea_orm(table_name = "repository")]
 pub struct Model {
     #[sea_orm(primary_key)]
     #[serde(skip_deserializing)]
     pub id: i32,
-    pub title: String,
-    pub body: Option<String>,
+    pub name: String,
+    pub full_name: String,
+    pub description: String,
     pub url: String,
-    pub state: Option<String>,
-    pub created_at: Option<String>,
+    pub fork: Option<bool>,
+    pub private: Option<bool>,
+    pub created_at: String,
     pub updated_at: Option<String>,
-    pub closed_at: Option<String>,
-    pub closed_by_id: i32,
     pub owner_id: i32,
-    pub comment_id: i32,
+    pub issue_id: i32,
 }
 
 #[derive(Copy, Clone, Debug, EnumIter, DeriveRelation)]
 pub enum Relation {
     #[sea_orm(
-        belongs_to = "Entity",
-        from = "Column::CommentId",
-        to = "Column::Id",
+        belongs_to = "super::issue::Entity",
+        from = "Column::IssueId",
+        to = "super::issue::Column::Id",
         on_update = "NoAction",
         on_delete = "NoAction"
     )]
-    SelfRef,
+    Issue,
     #[sea_orm(
         belongs_to = "super::owner::Entity",
         from = "Column::OwnerId",
@@ -38,22 +38,18 @@ pub enum Relation {
         on_update = "NoAction",
         on_delete = "NoAction"
     )]
-    Owner2,
-    #[sea_orm(
-        belongs_to = "super::owner::Entity",
-        from = "Column::ClosedById",
-        to = "super::owner::Column::Id",
-        on_update = "NoAction",
-        on_delete = "NoAction"
-    )]
-    Owner1,
-    #[sea_orm(has_many = "super::repository::Entity")]
-    Repository,
+    Owner,
 }
 
-impl Related<super::repository::Entity> for Entity {
+impl Related<super::issue::Entity> for Entity {
     fn to() -> RelationDef {
-        Relation::Repository.def()
+        Relation::Issue.def()
+    }
+}
+
+impl Related<super::owner::Entity> for Entity {
+    fn to() -> RelationDef {
+        Relation::Owner.def()
     }
 }
 
