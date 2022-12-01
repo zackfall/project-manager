@@ -2,10 +2,10 @@
 
 //! A CLI task manager writen with tui-rs, for personal use.
 
-use octocrab::{models::Repository, Result};
-mod actions;
-use actions::get_actions;
+extern crate dotenv;
+use dotenv::dotenv;
 
 fn main() {
-    todo!();
+    dotenv().ok();
+    todo!()
 }
