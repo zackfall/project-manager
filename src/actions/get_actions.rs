@@ -116,4 +116,45 @@ mod tests {
             Err(err) => panic!("{}", err),
         }
     }
+
+    #[tokio::test]
+    async fn get_issues_by_creator_test() {
+        let data = Data::new();
+        let issues =
+            get_issues_by_creator(data.owner.as_str(), data.repo.as_str(), "zackfall").await;
+        match issues {
+            Ok(paged_issues) => get_issues_util(paged_issues, data),
+            Err(err) => panic!("{}", err),
+        }
+    }
+
+    #[tokio::test]
+    async fn get_issues_by_state_test() {
+        let data = Data::new();
+        let issues = get_issues_by_state(
+            data.owner.as_str(),
+            data.repo.as_str(),
+            params::State::Closed,
+        )
+        .await;
+        match issues {
+            Ok(paged_issues) => get_issues_util(paged_issues, data),
+            Err(err) => panic!("{}", err),
+        }
+    }
+
+    #[tokio::test]
+    async fn get_issues_by_labels_test() {
+        let data = Data::new();
+        let issues = get_issues_by_labels(
+            data.owner.as_str(),
+            data.repo.as_str(),
+            &["foundations".to_owned()],
+        )
+        .await;
+        match issues {
+            Ok(paged_issues) => get_issues_util(paged_issues, data),
+            Err(err) => panic!("{}", err),
+        }
+    }
 }
