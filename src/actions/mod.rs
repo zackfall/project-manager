@@ -1,15 +1,12 @@
-extern crate dotenv;
-
+use dotenv_codegen::dotenv;
 use octocrab::Octocrab;
-use dotenv::dotenv;
 
 pub mod get_actions;
 
 pub fn build_octo() -> Octocrab {
-    dotenv().ok();
-    let token = std::env::var("TOKEN_GITHUB").ok().unwrap();
+    let token = dotenv!("GH_TOKEN");
     let octo = octocrab::OctocrabBuilder::new()
-        .personal_token(token)
+        .personal_token(token.to_owned())
         .build();
     match octo {
         Ok(octo) => octo,
