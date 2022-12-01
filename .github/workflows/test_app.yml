@@ -26,7 +26,7 @@ jobs:
       - name: Install nextest
         uses: taiki-e/install-action@nextest
       - name: Build and archive tests
-        run: GH_TOKEN=$GH_TOKEN cargo nextest archive --archive-file nextest-archive.tar.zst
+        run: cargo nextest archive --archive-file nextest-archive.tar.zst
       - name: Upload archive to workflow
         uses: actions/upload-artifact@v3
         with:
