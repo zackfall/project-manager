@@ -13,7 +13,7 @@ For each task or feature, or bug, or whatever it needs a commit, except typo err
 we are making in the commit.
 
 ## Features
-* [ ] Connect to Github API.
+* [x] Connect to Github API.
 * [ ] You can see the files that make up the project.
 * [ ] Manage issues with the Github API.
   * [ ] Manage comments.
