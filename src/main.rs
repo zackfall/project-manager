@@ -3,5 +3,5 @@
 //! A CLI task manager writen with tui-rs, for personal use.
 
 fn main() {
-    todo!()
+    println!("Waiting for the creation of the UI");
 }

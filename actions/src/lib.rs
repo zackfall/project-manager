@@ -1,7 +1,10 @@
 use dotenv::dotenv;
 use octocrab::Octocrab;
 
-pub mod get_actions;
+pub mod get;
+pub mod post;
+pub mod put;
+pub mod delete;
 
 pub fn build_octo() -> Octocrab {
     dotenv().ok();

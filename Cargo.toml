@@ -3,9 +3,16 @@ name = "project-manager"
 version = "0.1.0"
 edition = "2021"
 
+[workspace]
+members = [
+  "actions",
+
+  "tests"
+]
+
 [dependencies]
+actions = { path = "actions" }
 dotenv = "0.15.0"
-dotenv_codegen = "0.15.0"
 tui = "0.19.0"
 futures = "0.3"
 octocrab = "0.17.0"
