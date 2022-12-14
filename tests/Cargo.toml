@@ -8,6 +8,7 @@ publish = false
 
 [dev-dependencies]
 actions = { path = "../actions" }
+ui = { path = "../ui" }
 tokio = { version = "1", features = ["full"] }
 octocrab = "0.17.0"
 
@@ -22,3 +23,7 @@ path = "get_current_user_test.rs"
 [[test]]
 name = "get_repos_test"
 path = "get_repos_test.rs"
+
+[[test]]
+name = "ui_test"
+path = "ui_test.rs"

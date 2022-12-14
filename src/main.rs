@@ -2,6 +2,6 @@
 
 //! A CLI task manager writen with tui-rs, for personal use.
 
-fn main() {
-    println!("Waiting for the creation of the UI");
+fn main() -> Result<(), std::io::Error> {
+    ui::run_ui()
 }
