@@ -57,4 +57,4 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           GH_TOKEN=$GH_TOKEN ~/.cargo/bin/cargo-nextest nextest run --archive-file nextest-archive.tar.zst \
-            --partition count:${{ matrix.partition }}/2
+            --partition count:${{ matrix.partition }}/2 --retries 2
