@@ -10,6 +10,7 @@ publish = false
 actions = { path = "../actions" }
 ui = { path = "../ui" }
 tokio = { version = "1", features = ["full"] }
+tui = "0.19"
 octocrab = "0.17.0"
 
 [[test]]

@@ -846,6 +846,7 @@ dependencies = [
  "actions",
  "octocrab",
  "tokio",
+ "tui",
  "ui",
 ]
 
@@ -1183,6 +1184,7 @@ dependencies = [
  "actions",
  "octocrab",
  "tokio",
+ "tui",
  "ui",
 ]
 
