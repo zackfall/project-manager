@@ -1,5 +1,7 @@
 # Project Manager
 
+[![Test app](https://github.com/zackfall/project-manager/actions/workflows/test_app.yml/badge.svg)](https://github.com/zackfall/project-manager/actions/workflows/test_app.yml)
+
 A Project Manager in Terminal wrote with The Rust Programming Language using the crate [TUI-rs](https://github.com/fdehau/tui-rs) for the Terminal User Interface and
 [Octocrab](https://github.com/XAMPPRocky/octocrab.git) to interact with the GithubAPI.
 
