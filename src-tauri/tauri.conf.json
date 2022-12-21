@@ -1,9 +1,9 @@
 {
   "build": {
-    "beforeBuildCommand": "cd frontend && trunk build",
-    "beforeDevCommand": "cd frontend && trunk serve",
-    "devPath": "http://localhost:8080",
-    "distDir": "../frontend/dist"
+    "beforeBuildCommand": "cd client && pnpm build",
+    "beforeDevCommand": "cd client && pnpm dev",
+    "devPath": "http://127.0.0.1:5173",
+    "distDir": "../client/dist"
   },
   "package": {
     "productName": "project-manager",
