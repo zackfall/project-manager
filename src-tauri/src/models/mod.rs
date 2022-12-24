@@ -1,5 +1,6 @@
 #[macro_use]
 pub mod id_type_macro;
+pub mod issue;
 pub mod repos;
 pub mod user;
 
@@ -9,4 +10,4 @@ use std::ops::{Deref, DerefMut};
 
 type BaseIdType = u64;
 
-id_type!(UserId, RepositoryId);
+id_type!(UserId, RepositoryId, IssueId);
