@@ -1,5 +1,6 @@
 #[macro_use]
 pub mod id_type_macro;
+pub mod repos;
 pub mod user;
 
 use serde::{de, Deserialize, Deserializer, Serialize};
@@ -8,4 +9,4 @@ use std::ops::{Deref, DerefMut};
 
 type BaseIdType = u64;
 
-id_type!(UserId);
+id_type!(UserId, RepositoryId);
